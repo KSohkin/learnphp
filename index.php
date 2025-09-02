@@ -1,14 +1,31 @@
 <?php
 
-echo "Hello World!\n";
-echo ("Hello World!\n");
+$array = array(1, 2, 3, 4);
 
-$var = 1;
+$array = [1,2,3,4];
 
-echo $var;
-echo 'var is $var';
-echo "\nvar is $var\n";
-echo $var . "\n";
-$num = 1;
-$num = $num + 1;
-var_dump($num);
+$array = [
+    1, 
+    'hello', 
+    true, 
+    NULL, 
+    [1,2,3]
+];
+
+$array = [
+    'name' => 'Kaupo',
+    'age' => '18',
+];
+
+$array = [
+    1,
+    2,
+    3,
+    'name' => 'Kaupo',
+    'age' => '18',
+    'iscul' => true,
+    4,
+    5,
+];
+
+var_dump($array);
