@@ -3,8 +3,18 @@ class Box {
     private $width;
     protected $heigth;
     private $length;
-     public function __construct($w=0, $h=0, $l=0)
+
+    public static $count = 0;
+
+
+    public static function test(){
+        //var_dump($this->width);
+        var_dump(static::class);
+    }
+
+    public function __construct($w=0, $h=0, $l=0)
     {   
+        self::$count++;
         $this->width = $w;
         $this->heigth = $h;
         $this->length = $l;
@@ -21,7 +31,7 @@ class Box {
             throw new Exception('You are stupid dumbass');
         }
 
-        
+
     }
 
     public function volume(){
@@ -32,7 +42,7 @@ class Box {
 class MetalBox extends Box {
     public $material = 'metal🤘';
     public $massPerUnit = 2; 
-    
+
     public function changeWidth(){
         $this->width = 333;
     }
@@ -43,6 +53,14 @@ class MetalBox extends Box {
 }
 
 $metalBox = new Box(2,3,4);
+
+$box2 = new Box(2,4,5);
+Box::test();
+MetalBox::test();
+var_dump(Box::$count, Box::$count);
+
+
+
 //$metalBox->width = 'Cool value';
 $metalBox->setWidth(12);
 //$metalBox->width = 123;
@@ -51,4 +69,3 @@ $metalBox->setWidth(12);
 
 var_dump($metalBox);
 var_dump($metalBox->volume());
-//var_dump($metalBox->mass());
