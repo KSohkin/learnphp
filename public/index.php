@@ -4,13 +4,12 @@ if (preg_match('/\.(?:png|jpg|jpeg|gif|css|js)$/', $_SERVER["REQUEST_URI"])) {
 }
 
 
-
 spl_autoload_register(function ($class){
     $class = substr($class, 4);
     require_once __DIR__ . "/../src/$class.php";
 });
 
-use App\Router;
+session_start();
 
 require __DIR__ . '/../helpers.php';
 require __DIR__ . '/../routes.php';
@@ -26,6 +25,7 @@ if($match){
         $method = $match['action'][1];
         $controller->$method();
     }
+
 } else {
     echo '<img src="https://http.cat/404">';
 }
